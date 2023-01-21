@@ -54,7 +54,7 @@ router.put('/:id', (req, res) => {
   })
   .then(categoryData => res.json(categoryData))
   if (err) throw err
-});
+})
 
 router.delete('/:id', (req, res) => {
 
@@ -64,6 +64,6 @@ router.delete('/:id', (req, res) => {
     }
   })
   if (err) throw err
-});
+})
 
-module.exports = router;
+module.exports = router

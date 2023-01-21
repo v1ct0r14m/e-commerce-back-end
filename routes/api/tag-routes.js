@@ -1,5 +1,5 @@
-const router = require('express').Router();
-const { Tag, Product, ProductTag } = require('../../models');
+const router = require('express').Router()
+const { Tag, Product, ProductTag } = require('../../models')
 
 // The `/api/tags` endpoint
 
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
     ]
   })
   if (err) throw err
-});
+})
 
 router.get('/:id', (req, res) => {
   Tag.findOne({
@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
     ]
   })
   if (err) throw err
-});
+})
 
 router.post('/', (req, res) => {
   Tag.create(req.body, {
@@ -45,7 +45,7 @@ router.post('/', (req, res) => {
     }
   })
   if (err) throw err
-});
+})
 
 router.put('/:id', (req, res) => {
   Tag.update(req.body, {
@@ -54,7 +54,7 @@ router.put('/:id', (req, res) => {
     }
   })
   if (err) throw err
-});
+})
 
 router.delete('/:id', (req, res) => {
   Tag.destroy(req.body, {
@@ -63,6 +63,6 @@ router.delete('/:id', (req, res) => {
     }
   })
   if (err) throw err
-});
+})
 
-module.exports = router;
+module.exports = router
