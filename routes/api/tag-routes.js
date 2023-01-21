@@ -4,25 +4,65 @@ const { Tag, Product, ProductTag } = require('../../models');
 // The `/api/tags` endpoint
 
 router.get('/', (req, res) => {
-  // find all tags
-  // be sure to include its associated Product data
+  Tag.findAll({
+    attributes: ['id', ' tag_name'],
+    include: [
+      {
+        model: Product,
+        attributes: ['id', 'tag_name']
+      }
+    ]
+  })
+  if (err) throw err
 });
 
 router.get('/:id', (req, res) => {
-  // find a single tag by its `id`
-  // be sure to include its associated Product data
+  Tag.findOne({
+    attributes: ['id', 'tag_name'],
+    where: {
+      id: req.params.id
+    },
+    include: [
+      {
+        model: Product,
+        attributes: ['id', 'category_name']
+      },
+      {
+        model: Tag,
+        through: ProductTag,
+        as: 'tags'
+      }
+    ]
+  })
+  if (err) throw err
 });
 
 router.post('/', (req, res) => {
-  // create a new tag
+  Tag.create(req.body, {
+    where: {
+      id: req.params.id,
+      tag_name: req.params.tag_name
+    }
+  })
+  if (err) throw err
 });
 
 router.put('/:id', (req, res) => {
-  // update a tag's name by its `id` value
+  Tag.update(req.body, {
+    where: {
+      id: req.params.id
+    }
+  })
+  if (err) throw err
 });
 
 router.delete('/:id', (req, res) => {
-  // delete on tag by its `id` value
+  Tag.destroy(req.body, {
+    where: {
+      id: req.params.id
+    }
+  })
+  if (err) throw err
 });
 
 module.exports = router;
