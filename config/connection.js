@@ -1,11 +1,9 @@
-require('dotenv').config();
+const Sequelize = require('sequelize')
 
-const Sequelize = require('sequelize');
-
-const sequelize = new Sequelize('e')
-    {
-      host: 'localhost',
-      dialect: 'mysql'
-    });
+const sequelize = new Sequelize('ecommerce_db', 'root', {
+  host: 'localhost',
+  dialect: 'mysql',
+  port: 3001
+})
 
 module.exports = sequelize;
