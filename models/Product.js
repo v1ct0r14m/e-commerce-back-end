@@ -1,6 +1,5 @@
 // import important parts of sequelize library
 const { Model, DataTypes, Sequelize } = require('sequelize');
-import sequelize from 'sequelize'
 
 // Initialize Product model (table) by extending off Sequelize's Model class
 class Product extends Model {}
