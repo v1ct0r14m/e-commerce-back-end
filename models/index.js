@@ -1,4 +1,3 @@
-// import models
 const Product = require('./Product')
 const Category = require('./Category')
 const Tag = require('./Tag')
@@ -26,9 +25,4 @@ Tag.belongsToMany(Product, {
 foreignKey: 'tag_id'
 })
 
-module.exports = {
-  Product,
-  Category,
-  Tag,
-  ProductTag,
-}
+module.exports = { Product, Category, Tag, ProductTag }

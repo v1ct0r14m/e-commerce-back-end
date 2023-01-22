@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize')
-
-import sequelize from '../config/connection.js'
+const sequelize = requre('../config/connection.js')
 
 class Category extends Model {}
 
