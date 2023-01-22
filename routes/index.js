@@ -1,7 +1,7 @@
 const express = require('express')
 const router = ('express').Router()
 const apiRoutes = require('./api')
-const mysql = require('mysql')
+
 
 router.use('/api', apiRoutes)
 
